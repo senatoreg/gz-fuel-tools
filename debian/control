@@ -1,0 +1,54 @@
+Source: gz-fuel-tools
+Section: libs
+Priority: optional
+Maintainer: Giovanni Senatore <giovanni.senatore@gmail.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ cmake,
+ libtinyxml2-dev,
+ libjsoncpp-dev,
+ libyaml-dev,
+ libzip-dev,
+ libgz-utils-dev,
+ libgz-common-dev,
+ libgz-math-dev,
+ libgz-msgs-dev,
+ ruby-gz-msgs,
+Standards-Version: 4.6.2
+Homepage: https://gazebosi.org/
+#Vcs-Browser: https://salsa.debian.org/debian/gz-fuel-tools
+#Vcs-Git: https://salsa.debian.org/debian/gz-fuel-tools.git
+
+Package: libgz-fuel-tools-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ libgz-fuel-tools10 (= ${binary:Version}),
+ ${misc:Depends},
+Description:  A client library and command line tools for interacting with Gazebo Fuel servers - development files
+ Gazebo Fuel Tools is composed by a client library and command line tools for
+ interacting with Gazebo Fuel servers.
+
+Package: libgz-fuel-tools10
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description:  A client library and command line tools for interacting with Gazebo Fuel servers
+ Gazebo Fuel Tools is composed by a client library and command line tools for
+ interacting with Gazebo Fuel servers.
+ 
+Package: ruby-gz-fuel-tools
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ ruby,
+ libgz-fuel-tools10 (= ${binary:Version}),
+ ${misc:Depends},
+Description:  A client library and command line tools for interacting with Gazebo Fuel servers - development files
+ Gazebo Fuel Tools is composed by a client library and command line tools for
+ interacting with Gazebo Fuel servers.
