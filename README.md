@@ -12,7 +12,7 @@ Build | Status
 Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools10/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools10)
 Ubuntu Noble  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-fuel-tools10-noble-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools10-noble-amd64)
 Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools10-homebrew-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools10-homebrew-amd64)
-Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-10-win)](https://build.osrfoundation.org/job/gz_fuel_tools-10-win/)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-10-clowin)](https://build.osrfoundation.org/job/gz_fuel_tools-10-clowin/)
 
 Gazebo Fuel Tools is composed by a client library and command line tools for
 interacting with Gazebo Fuel servers.
@@ -119,25 +119,25 @@ sudo apt install ruby-ffi libzip-dev libcurl-dev libjsoncpp-dev
         E.g.: localRepository.List("models")
         remote1Repository.List("models")
     * Details(assetIdentifier).
-        E.g.: Modeldentifier model;
+        E.g.: ModelIdentifier model;
         model.Owner("the_owner");
         model.Name("the_name");
         localRepository.Details(model)
         remote1Repository.Details(model)
     * Create(assetIdentifier, path_to_the_asset).
-        E.g.: Modeldentifier model;
+        E.g.: ModelIdentifier model;
         model.Owner("the_owner");
         model.Name("the_name");
         localRepository.Create(model, path_to_the_asset)
         remote1Repository.Create(model, path_to_the_asset)
     * Delete(assetIdentifier).
-        E.g.: Modeldentifier model;
+        E.g.: ModelIdentifier model;
         model.Owner("the_owner");
         model.Name("the_name");
         localRepository.Delete(model)
         remote1Repository.Delete(model)
      * CopyTo(assetIdentifier, dst_repository).
-        E.g.: Modeldentifier model;
+        E.g.: ModelIdentifier model;
         model.Owner("the_owner");
         model.Name("the_name");
         localRepository.CopyTo(model, remote1Repository)

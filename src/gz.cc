@@ -516,7 +516,7 @@ extern "C" GZ_FUEL_TOOLS_VISIBLE int downloadUrl(const char *_url,
               << std::endl;
     }
 
-    int result = 0;
+    gz::fuel_tools::Result result(gz::fuel_tools::ResultType::UNKNOWN);
     if (_header && strlen(_header) > 0)
     {
       std::vector<std::string> headers;
@@ -528,9 +528,10 @@ extern "C" GZ_FUEL_TOOLS_VISIBLE int downloadUrl(const char *_url,
       result = client.DownloadModel(model);
     }
 
-    if (!result)
+    if (result.Type() != gz::fuel_tools::ResultType::FETCH)
     {
-      std::cout << "Download failed." << std::endl;
+      std::cout << "Download failed because " << result.ReadableResult()
+        << std::endl;
       return false;
     }
   }
@@ -553,7 +554,7 @@ extern "C" GZ_FUEL_TOOLS_VISIBLE int downloadUrl(const char *_url,
 
     gz::fuel_tools::Result result = client.DownloadWorld(world);
 
-    if (!result)
+    if (result.Type() != gz::fuel_tools::ResultType::FETCH)
     {
       std::cout << "Download failed because " << result.ReadableResult()
         << std::endl;
@@ -583,7 +584,7 @@ extern "C" GZ_FUEL_TOOLS_VISIBLE int downloadUrl(const char *_url,
       }
       else
       {
-        gzerr << "Unknown resource type [" << _type << "] sepcified.\n";
+        gzerr << "Unknown resource type [" << _type << "] specified.\n";
         return false;
       }
     }
@@ -801,7 +802,7 @@ extern "C" GZ_FUEL_TOOLS_VISIBLE int pbtxt2Config(const char *_path)
   std::string inputStr((std::istreambuf_iterator<char>(inputFile)),
       std::istreambuf_iterator<char>());
 
-  // Parse the file into the fuell metadata message
+  // Parse the file into the fuel metadata message
   google::protobuf::TextFormat::ParseFromString(inputStr, &meta);
 
   std::string modelConfig;
