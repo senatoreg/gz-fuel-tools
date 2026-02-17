@@ -25,13 +25,13 @@ Section: libdevel
 Architecture: any
 Multi-Arch: same
 Depends:
- libgz-fuel-tools10 (= ${binary:Version}),
+ libgz-fuel-tools11 (= ${binary:Version}),
  ${misc:Depends},
 Description:  A client library and command line tools for interacting with Gazebo Fuel servers - development files
  Gazebo Fuel Tools is composed by a client library and command line tools for
  interacting with Gazebo Fuel servers.
 
-Package: libgz-fuel-tools10
+Package: libgz-fuel-tools11
 Architecture: any
 Multi-Arch: same
 Depends:
@@ -47,7 +47,7 @@ Architecture: any
 Multi-Arch: same
 Depends:
  ruby,
- libgz-fuel-tools10 (= ${binary:Version}),
+ libgz-fuel-tools11 (= ${binary:Version}),
  ${misc:Depends},
 Description:  A client library and command line tools for interacting with Gazebo Fuel servers - development files
  Gazebo Fuel Tools is composed by a client library and command line tools for
